@@ -1,8 +1,8 @@
 "use client";
 
 import { ThemeProvider } from "next-themes";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
+// import { Provider } from "react-redux";
+// import { PersistGate } from "redux-persist/integration/react";
 // import { store, persistor } from "@/redux/store";
 
 export default function Providers({
