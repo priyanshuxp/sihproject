@@ -368,47 +368,54 @@ export default function HeroSection() {
             <p className="mt-4 text-base text-muted-foreground">
               Whether you are an ambitious student, a placement officer, or a corporate recruiter, SkillBridge delivers targeted value.
             </p>
+<div className="mt-8 inline-flex max-w-full overflow-hidden rounded-xl border bg-muted/60 p-1">
+  <button
+    type="button"
+    onClick={() => setActiveTab("students")}
+    className={`flex shrink-0 items-center gap-1 px-2 py-1.5 rounded-lg text-[10px] font-semibold transition-all sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
+      activeTab === "students"
+        ? "bg-background text-foreground shadow-xs"
+        : "text-muted-foreground hover:text-foreground"
+    }`}
+  >
+    <Users className="size-3 sm:size-4" />
+    <span>Learners & Students</span>
+  </button>
 
-            {/* Solution Switcher Pills */}
-            <div className="mt-8 inline-flex p-1 rounded-xl border bg-muted/60">
-              <button
-                type="button"
-                onClick={() => setActiveTab("students")}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                  activeTab === "students"
-                    ? "bg-background text-foreground shadow-xs"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <Users className="size-4" />
-                <span>Learners & Students</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab("institutes")}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                  activeTab === "institutes"
-                    ? "bg-background text-foreground shadow-xs"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <GraduationCap className="size-4" />
-                <span>Universities & Colleges</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab("companies")}
-                className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all ${
-                  activeTab === "companies"
-                    ? "bg-background text-foreground shadow-xs"
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
-              >
-                <Briefcase className="size-4" />
-                <span>Corporate Enterprises</span>
-              </button>
-            </div>
-          </div>
+  <button
+    type="button"
+    onClick={() => setActiveTab("institutes")}
+    className={`flex shrink-0 items-center gap-1 px-2 py-1.5 rounded-lg text-[10px] font-semibold transition-all sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
+      activeTab === "institutes"
+        ? "bg-background text-foreground shadow-xs"
+        : "text-muted-foreground hover:text-foreground"
+    }`}
+  >
+    <GraduationCap className="size-3 sm:size-4" />
+    <span>Universities & Colleges</span>
+  </button>
+
+  <button
+    type="button"
+    onClick={() => setActiveTab("companies")}
+    className={`flex shrink-0 items-center gap-1 px-2 py-1.5 rounded-lg text-[10px] font-semibold transition-all sm:gap-2 sm:px-4 sm:py-2 sm:text-sm ${
+      activeTab === "companies"
+        ? "bg-background text-foreground shadow-xs"
+        : "text-muted-foreground hover:text-foreground"
+    }`}
+  >
+    <Briefcase className="size-3 sm:size-4" />
+    <span>Corporate Enterprises</span>
+  </button>
+</div>
+
+          
+
+
+ 
+
+                  
+                
 
           {/* Active Solution Content Card */}
           <div className="rounded-2xl border bg-card p-6 md:p-10 shadow-lg">
