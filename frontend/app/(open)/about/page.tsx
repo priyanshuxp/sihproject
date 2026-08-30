@@ -73,7 +73,7 @@ export default function About() {
 
         <div className="mt-6 grid gap-8 sm:grid-cols-2">
           <div>
-            <h3 className="font-medium">Skill Assessment & Mapping</h3>
+            <h3 className="font-medium">Skill Assessment &amp; Mapping</h3>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               Assess technical, aptitude, and soft skills to build a
               structured skill profile and identify areas that require further
@@ -82,7 +82,7 @@ export default function About() {
           </div>
 
           <div>
-            <h3 className="font-medium">Learning & Career Guidance</h3>
+            <h3 className="font-medium">Learning &amp; Career Guidance</h3>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               Recommend relevant learning resources, training programs,
               certifications, and career directions based on skills, interests,
@@ -91,7 +91,7 @@ export default function About() {
           </div>
 
           <div>
-            <h3 className="font-medium">Internships & Placements</h3>
+            <h3 className="font-medium">Internships &amp; Placements</h3>
             <p className="mt-2 text-sm leading-6 text-muted-foreground">
               Provide a centralized space for discovering, applying to, and
               tracking internships, projects, apprenticeships, and entry-level
