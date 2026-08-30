@@ -1,16 +1,16 @@
 export default function Privacy() {
   return (
-    <main className="max-w-4xl mx-auto px-6 py-12 text-slate-800">
+    <main className="max-w-4xl mx-auto px-6 py-12 text-slate-100">
       <h1 className="text-3xl font-bold mb-6">Privacy Policy</h1>
-      <p className="text-sm text-slate-500 mb-8">Last updated: September 2026</p>
+      <p className="text-sm text-slate-400 mb-8">Last updated: September 2026</p>
 
       <div className="space-y-6">
         <section>
           <h2 className="text-xl font-semibold mb-2">1. Information We Collect</h2>
-          <p className="leading-relaxed mb-2">
+          <p className="leading-relaxed mb-2 text-slate-300">
             We collect personal and academic data required to provide skill-mapping and placement services:
           </p>
-          <ul className="list-disc pl-5 space-y-1">
+          <ul className="list-disc pl-5 space-y-1 text-slate-300">
             <li>Profile data (Name, Academic records, Email, Institution).</li>
             <li>Skill assessments, certifications, and uploaded resumes.</li>
             <li>Usage metrics and recruitment progress tracking.</li>
@@ -19,7 +19,7 @@ export default function Privacy() {
 
         <section>
           <h2 className="text-xl font-semibold mb-2">2. How We Use Your Data</h2>
-          <p className="leading-relaxed">
+          <p className="leading-relaxed text-slate-300">
             Your data is used to evaluate skill proficiency, generate recommendation profiles, match students with industry opportunities, and provide analytics for educational institutions.
           </p>
         </section>
