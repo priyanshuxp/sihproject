@@ -61,7 +61,7 @@ export default function Privacy() {
           <h2 className="text-xl font-semibold">2. How We Use Information</h2>
 
           <p className="mt-3 leading-7 text-muted-foreground">
-            Information may be used to provide and improve the platform's
+            Information may be used to provide and improve the platform&apos;s
             intended functionality, including:
           </p>
 
@@ -98,14 +98,14 @@ export default function Privacy() {
           <p className="mt-3 leading-7 text-muted-foreground">
             Information may be made available to relevant platform
             participants when required for a requested service or
-            collaboration. For example, information included in a student's
+            collaboration. For example, information included in a student&apos;s
             application or professional profile may be shared with an
             organization for consideration of an internship or placement
-            opportunity, subject to the platform's applicable access controls.
+            opportunity, subject to the platform&apos;s applicable access controls.
           </p>
 
           <p className="mt-4 leading-7 text-muted-foreground">
-            Access to information should be limited according to the user's
+            Access to information should be limited according to the user&apos;s
             role and the purpose for which the information is required.
           </p>
         </section>

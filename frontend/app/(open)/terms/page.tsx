@@ -146,7 +146,7 @@ export default function Terms() {
           <ul className="mt-3 list-disc space-y-2 pl-6 leading-7 text-muted-foreground">
             <li>Attempting to gain unauthorized access to the platform.</li>
             <li>Submitting false credentials or fraudulent documents.</li>
-            <li>Misusing another user's account or personal information.</li>
+            <li>Misusing another user&apos;s account or personal information.</li>
             <li>Uploading malicious, harmful, or unauthorized content.</li>
             <li>Using the platform for activities unrelated to its intended purpose.</li>
           </ul>
