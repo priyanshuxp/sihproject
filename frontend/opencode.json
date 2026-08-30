@@ -1,0 +1,28 @@
+{
+  "$schema": "https://opencode.ai/config.schema.json",
+  "instructions": [
+    "You are allowed to READ components/ui/**, lib/utils.ts, and app/globals.css to inspect existing components and utils.",
+    "Do NOT write, modify, or delete any files inside /components/ui, lib/utils.ts, or app/globals.css.",
+    "You are allowed to create, update, or delete any other files, routes, components, or folders as needed.",
+    "Follow the architecture logic: Three roles (Industry, Institute, Student) with verification gates and recommendation engines.",
+    "Use Tailwind CSS utility classes and existing shadcn/ui components for all styling."
+  ],
+  "permission": {
+    "components/ui/**": {
+      "read": "allow",
+      "write": "deny"
+    },
+    "lib/utils.ts": {
+      "read": "allow",
+      "write": "deny"
+    },
+    "app/globals.css": {
+      "read": "allow",
+      "write": "deny"
+    }
+  },
+  "formatting": {
+    "tabSize": 2,
+    "insertSpaces": true
+  }
+}

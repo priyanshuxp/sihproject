@@ -1,132 +1,56 @@
 import type { LinkItemType } from "./sheard";
-import { UserCog, ShoppingCart, BarChart3, Package, Zap, UsersIcon, StarIcon, HandshakeIcon, FileTextIcon, ShieldIcon, RotateCcwIcon, LeafIcon, HelpCircleIcon, Handshake } from "lucide-react";
+import { Brain, Briefcase, Handshake, BarChart3, Users, GraduationCap, Building2, BookOpen } from "lucide-react";
 
-export const productLinks: LinkItemType[] = [
+export const platformModuleLinks: LinkItemType[] = [
 	{
-		label: "Business Management",
-		href: "#",
-		description: "Manage teams, roles, multi-branch operations",
-		icon: (
-			<UserCog
-			/>
-		),
+		label: "Skill Mapping & Assessment",
+		href: "/dashboard/student?tab=assessment",
+		description: "Technical/soft skill questionnaires, diagnostic profiles, and gap analysis.",
+		icon: <Brain className="size-5" />,
 	},
 	{
-		label: "Sales & CRM",
-		href: "#",
-		description: "Track leads, manage customers, close deals faster",
-		icon: (
-			<Handshake
-			/>
-		),
+		label: "Internship & Placement Hub",
+		href: "/dashboard/industry?tab=jobs",
+		description: "Centralized listings, application tracking, and verified digital portfolios.",
+		icon: <Briefcase className="size-5" />,
 	},
 	{
-		label: "Online Store",
-		href: "#",
-		description: "Launch store instantly, manage products, orders, payments",
-		icon: (
-			<ShoppingCart
-			/>
-		),
+		label: "Academia–Industry Collaboration",
+		href: "/dashboard/academician?tab=consultancy",
+		description: "FDPs, faculty internships, live projects, guest lectures, and consultancy.",
+		icon: <Handshake className="size-5" />,
 	},
 	{
-		label: "Analytics",
-		href: "#",
-		description: "Get insights, reports, track business performance",
-		icon: (
-			<BarChart3
-			/>
-		),
-	},
-	{
-		label: "Operations",
-		href: "#",
-		description: "Manage purchases, vendors, inventory, stock operations",
-		icon: (
-			<Package
-			/>
-		),
-	},
-	{
-		label: "Automation",
-		href: "#",
-		description: "Trigger actions, alerts, and workflows automatically",
-		icon: (
-			<Zap
-			/>
-		),
+		label: "Institutional Analytics",
+		href: "/dashboard/institute?tab=metrics",
+		description: "Student skill readiness dashboards, placement outcomes, and industry trends.",
+		icon: <BarChart3 className="size-5" />,
 	},
 ];
 
-export const companyLinks: LinkItemType[] = [
+export const userPortalLinks: LinkItemType[] = [
 	{
-		label: "About Us",
-		href: "/about",
-		description: "Learn more about our story and team",
-		icon: (
-			<UsersIcon
-			/>
-		),
+		label: "Student Portal",
+		href: "/dashboard/student",
+		description: "Portfolio builder, skill exams, job applications, and progress trackers.",
+		icon: <Users className="size-5" />,
 	},
 	{
-		label: "Customer Stories",
-		href: "/stories",
-		description: "See how we've helped our clients succeed",
-		icon: (
-			<StarIcon
-			/>
-		),
+		label: "Industry Portal",
+		href: "/dashboard/industry",
+		description: "Post jobs, publish courses, manage applicant interviews and feedback.",
+		icon: <Building2 className="size-5" />,
 	},
 	{
-		label: "Partnerships",
-		href: "#",
-		icon: (
-			<HandshakeIcon
-			/>
-		),
-		description: "Collaborate with us for mutual growth",
-	},
-];
-
-export const companyLinks2: LinkItemType[] = [
-	{
-		label: "Terms of Service",
-		href: "/terms",
-		icon: (
-			<FileTextIcon
-			/>
-		),
+		label: "Institute Admin Portal",
+		href: "/dashboard/institute",
+		description: "Student verification queue, skill gap analytics, and placement metrics.",
+		icon: <GraduationCap className="size-5" />,
 	},
 	{
-		label: "Privacy Policy",
-		href: "/privacypolicy",
-		icon: (
-			<ShieldIcon
-			/>
-		),
-	},
-	{
-		label: "Refund Policy",
-		href: "/refundpolicy",
-		icon: (
-			<RotateCcwIcon
-			/>
-		),
-	},
-	{
-		label: "Blog",
-		href: "/blog",
-		icon: (
-			<LeafIcon
-			/>
-		),
-	},
-	{
-		label: "Help Center",
-		href: "/helps",
-		icon: (
-			<HelpCircleIcon
-			/>
-		),
+		label: "Academician & Faculty Portal",
+		href: "/dashboard/academician",
+		description: "Track cohort performance and collaborate on industry project reviews.",
+		icon: <BookOpen className="size-5" />,
 	},
 ];
