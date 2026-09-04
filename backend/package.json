@@ -4,7 +4,8 @@
   "description": "SIH",
   "main": "index.js",
   "scripts": {
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "test": "node tests/test_foundation.js"
   },
   "keywords": [],
   "author": "",
@@ -19,11 +20,15 @@
     "express": "^5.2.1",
     "joi": "^18.0.2",
     "jsonwebtoken": "^9.0.3",
-    "multer": "^2.1.1"
+    "multer": "^2.1.1",
+    "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
     "@types/node": "^25.5.0",
     "nodemon": "^3.1.14",
     "prisma": "^5.11.0"
+  },
+  "prisma": {
+    "seed": "node prisma/seed.js"
   }
 }

@@ -1,0 +1,306 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+
+// =====================================================
+// PERMISSION
+// =====================================================
+
+model Permission {
+  permission_uuid String @id @default(uuid())
+
+  name String
+  code String @unique
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  institutionRolePermissions  InstitutionRolePermission[]
+  organizationRolePermissions OrganizationRolePermission[]
+}
+
+
+// =====================================================
+// INSTITUTION
+// =====================================================
+
+model Institution {
+  institution_uuid String @id @default(uuid())
+
+  name        String
+  description String?
+
+  website String?
+  logo    String?
+
+  email String?
+  phone String?
+
+  address String?
+  city    String?
+  state   String?
+  country String?
+
+  status String @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  institutionRoles   InstitutionRole[]
+  institutionMembers InstitutionMember[]
+}
+
+
+model InstitutionRole {
+  institutionrole_uuid String @id @default(uuid())
+
+  name        String
+  description String?
+
+  institution_id String
+  institution Institution @relation(fields: [institution_id], references: [institution_uuid], onDelete: Cascade)
+
+  institutionRolePermissions InstitutionRolePermission[]
+  institutionMembers         InstitutionMember[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, institution_id])
+  @@index([institution_id])
+}
+
+
+model InstitutionRolePermission {
+  institutionrolepermission_uuid String @id @default(uuid())
+
+  institutionrole_id String
+  permission_id      String
+
+  institutionRole InstitutionRole @relation(fields: [institutionrole_id], references: [institutionrole_uuid], onDelete: Cascade)
+  permission      Permission      @relation(fields: [permission_id], references: [permission_uuid], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([institutionrole_id, permission_id])
+
+  @@index([institutionrole_id])
+  @@index([permission_id])
+}
+
+
+model InstitutionMember {
+  institutionmember_uuid String @id @default(uuid())
+
+  user_id String
+  user    User @relation(fields: [user_id], references: [user_uuid], onDelete: Cascade)
+
+  institution_id String
+  institution Institution @relation(fields: [institution_id], references: [institution_uuid], onDelete: Cascade)
+
+  institutionrole_id String?
+  institutionRole InstitutionRole? @relation(fields: [institutionrole_id], references: [institutionrole_uuid], onDelete: SetNull)
+
+  status String @default("PENDING")
+
+  isOwner Boolean @default(false)
+
+  requestedAt DateTime @default(now())
+  approvedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([user_id, institution_id])
+
+  @@index([user_id])
+  @@index([institution_id])
+  @@index([institutionrole_id])
+}
+
+
+// =====================================================
+// ORGANIZATION
+// =====================================================
+
+model Organization {
+  organization_uuid String @id @default(uuid())
+
+  name        String
+  description String?
+
+  website String?
+  logo    String?
+
+  email String?
+  phone String?
+
+  address String?
+  city    String?
+  state   String?
+  country String?
+
+  status String @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  organizationRoles   OrganizationRole[]
+  organizationMembers OrganizationMember[]
+}
+
+
+model OrganizationRole {
+  organizationrole_uuid String @id @default(uuid())
+
+  name        String
+  description String?
+
+  organization_id String
+  organization Organization @relation(fields: [organization_id], references: [organization_uuid], onDelete: Cascade)
+
+  organizationRolePermissions OrganizationRolePermission[]
+  organizationMembers         OrganizationMember[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([name, organization_id])
+  @@index([organization_id])
+}
+
+
+model OrganizationRolePermission {
+  organizationrolepermission_uuid String @id @default(uuid())
+
+  organizationrole_id String
+  permission_id       String
+
+  organizationRole OrganizationRole @relation(fields: [organizationrole_id], references: [organizationrole_uuid], onDelete: Cascade)
+  permission       Permission       @relation(fields: [permission_id], references: [permission_uuid], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([organizationrole_id, permission_id])
+
+  @@index([organizationrole_id])
+  @@index([permission_id])
+}
+
+
+model OrganizationMember {
+  organizationmember_uuid String @id @default(uuid())
+
+  user_id String
+  user    User @relation(fields: [user_id], references: [user_uuid], onDelete: Cascade)
+
+  organization_id String
+  organization Organization @relation(fields: [organization_id], references: [organization_uuid], onDelete: Cascade)
+
+  organizationrole_id String?
+  organizationRole OrganizationRole? @relation(fields: [organizationrole_id], references: [organizationrole_uuid], onDelete: SetNull)
+
+  jobTitle String?
+
+  status String @default("PENDING")
+
+  isOwner Boolean @default(false)
+
+  requestedAt DateTime @default(now())
+  approvedAt  DateTime?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([user_id, organization_id])
+
+  @@index([user_id])
+  @@index([organization_id])
+  @@index([organizationrole_id])
+}
+
+
+// =====================================================
+// USER
+// =====================================================
+model User {
+  user_uuid String @id @default(uuid())
+
+  firstName String
+  lastName  String
+
+  email    String? @unique
+  phone    String? @unique
+  password String?
+
+  avatar String?
+
+  status String @default("ACTIVE")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  institutionMembers  InstitutionMember[]
+  organizationMembers OrganizationMember[]
+
+  studentProfile     StudentProfile?
+  academicianProfile AcademicianProfile?
+}
+
+
+// =====================================================
+// STUDENT PROFILE
+// =====================================================
+
+model StudentProfile {
+  studentprofile_uuid String @id @default(uuid())
+
+  user_id String @unique
+  user    User @relation(fields: [user_id], references: [user_uuid], onDelete: Cascade)
+
+  bio String?
+
+  course           String?
+  department       String?
+  currentYear      Int?
+  enrollmentNumber String?
+
+  city    String?
+  state   String?
+  country String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+
+// =====================================================
+// ACADEMICIAN PROFILE
+// =====================================================
+
+model AcademicianProfile {
+  academicianprofile_uuid String @id @default(uuid())
+
+  user_id String @unique
+  user    User @relation(fields: [user_id], references: [user_uuid], onDelete: Cascade)
+
+  designation     String?
+  department      String?
+  qualification   String?
+  specialization  String?
+  experienceYears Int?
+
+  bio String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
